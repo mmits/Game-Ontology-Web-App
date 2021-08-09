@@ -1,0 +1,130 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+	background: #FFFFFF;
+	font: 18px "Century Gothic", Futura, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+/*====================================================*/
+/* Top bar */
+.top{
+	display: flex;
+	background: #FFFFFF;
+	padding: 30px;
+	text-align: center;
+	border-bottom: 5px solid #000000;
+}
+
+/* Logo */
+.logo{
+	font-size: 40px;
+	flex: 2;
+}
+
+/* Top navigation bar */
+.top-nav{
+	flex: 5;
+	font-size: 18px;
+	list-style-type: none;
+	overflow: hidden;
+	background: #FFFFFF;
+}
+.topnav-item {
+  float: left;
+}
+.extranav-item {
+  float: right;
+}
+.topnav-item a, .extranav-item a {
+  display: block;
+  color: #000000;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+.topnav-item a:hover, .extranav-item a:hover {
+  background: #000000;
+  color: #FFFFFF;
+}
+/*====================================================*/
+
+
+
+/*====================================================*/
+/* Main content */
+.main{
+	display: flex;
+}
+
+/* Sidebar */
+.side{
+	background: #FFFFFF;
+	flex: 1;
+	text-align: center;
+	padding: 20px;
+}
+
+/* Game entry */
+.entry-bg{
+	background: #000000;
+	flex: 8;
+	padding: 20px;
+}
+.entry{
+	background: white;
+	margin: 15px;
+}
+
+.entry-title{
+	font-size: 24px;
+	padding: 10px 40px;
+}
+
+.entry-container{
+	display: flex;
+}
+.entry-data{
+	padding: 20px;
+	float: left;
+}
+
+.extra-info{
+	clear: both;
+	padding: 20px;
+}
+
+.entry-suggestions{
+	text-align: center;
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+}
+.suggestion-items{
+	float: left;
+}
+
+img{
+	margin: 20px;
+	width: 250px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+/*====================================================*/
+
+
+
+/*====================================================*/
+/* Footer */
+.footer{
+	background: #FFFFFF;
+	padding: 10px;
+	text-align: center;
+}
+/*====================================================*/
