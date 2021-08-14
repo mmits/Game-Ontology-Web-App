@@ -1,0 +1,67 @@
+/*====================================================*/
+/* Main content */
+.main{
+	display: flex;
+}
+
+/* Sidebar */
+.side{
+	background: #FFFFFF;
+	flex: 1;
+	text-align: center;
+	padding: 20px;
+}
+
+/* Game entry */
+.entry-bg{
+	background: #000000;
+	flex: 8;
+	padding: 20px;
+}
+.entry{
+	background: white;
+	margin: 15px;
+}
+
+.entry-title{
+	font-size: 24px;
+	padding: 10px 40px;
+}
+
+.entry-container{
+	display: flex;
+	clear: both;
+}
+.data{
+	padding: 20px;
+	float: left;
+}
+.randgame-blocks{
+	padding: 20px;
+	flex: 1;
+}
+
+.extra{
+	clear: both;
+	padding: 20px;
+}
+
+.suggestions-container{
+	text-align: center;
+	padding: 20px;
+}
+.suggestion-items{
+	display: flex;
+	flex-direction: column;
+}
+
+img{
+	margin: 20px;
+	width: 250px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+/*====================================================*/
