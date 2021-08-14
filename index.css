@@ -86,25 +86,32 @@ body {
 
 .entry-container{
 	display: flex;
+	clear: both;
 }
-.entry-data{
+.data{
 	padding: 20px;
 	float: left;
 }
+.randgame-blocks{
+	padding: 20px;
+	flex: 1;
+}
 
-.extra-info{
+.extra{
 	clear: both;
 	padding: 20px;
 }
 
-.entry-suggestions{
-	text-align: center;
-	padding: 10px;
+.suggestions-container{
+	padding: 20px;
 	display: flex;
+	flex-direction: row;
 	justify-content: center;
 }
 .suggestion-items{
-	float: left;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
 }
 
 img{
