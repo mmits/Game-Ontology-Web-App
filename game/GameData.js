@@ -9,7 +9,8 @@ class GameData extends React.Component{
 		super(props);
 		this.state = {
 			items: [],
-			name: []
+			name: [],
+			platforms: []
 			//gameObject: []
 		};
 	}
@@ -30,7 +31,7 @@ class GameData extends React.Component{
 		};
 		
 		var labels=[];
-		var name;
+		var platforms=[];
 		var parsedObject;
 		const response = fetch(queryUrl,options)
 			.then(response => {
@@ -42,9 +43,12 @@ class GameData extends React.Component{
 					if (parsedObject[i]['y']['type']==="literal"){
 						switch (parsedObject[i]['x']['value']) {
 							case ("http://www.w3.org/2000/01/rdf-schema#label"):
-								name = parsedObject[i]['y']['value'];
+								var name = parsedObject[i]['y']['value'];
 								break;
 							case ("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"):
+								break;
+							case ("http://purl.org/net/MyOntology#isReleasedOn"):
+								platforms.push(parsedObject[i]['y']['value']);
 								break;
 							default:
 								labels.push(parsedObject[i]['y']['value']);
@@ -54,9 +58,12 @@ class GameData extends React.Component{
 					else if((typeof parsedObject[i]['label'] !== 'undefined') && (parsedObject[i]['label']['type']==="literal")){
 						switch (parsedObject[i]['x']['value']) {
 						case ("http://www.w3.org/2000/01/rdf-schema#label"):
-							name = parsedObject[i]['y']['value'];
+							name = parsedObject[i]['label']['value'];
 							break;
 						case ("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"):
+							break;
+						case ("http://purl.org/net/MyOntology#isReleasedOn"):
+							platforms.push(parsedObject[i]['label']['value']);
 							break;
 						default:
 							labels.push(parsedObject[i]['label']['value']);
@@ -67,9 +74,11 @@ class GameData extends React.Component{
 				console.log(data);
 				console.log(parsedObject);
 				console.log(labels);
+				console.log(platforms);
 				this.setState({
 					items: labels,
-					name: name
+					name: name,
+					platforms: platforms
 					//gameObject: data['results']['bindings'][0]
 				});
 				/*
@@ -91,6 +100,7 @@ class GameData extends React.Component{
 		let catalogue = this.state.items.map((item, key) => (
 			<li key={key}>{item}</li>
 		));
+		let platformsList = this.state.platforms.join(", ");
 		return(
 			<div>
 				<div className="entry entry-title">
@@ -102,6 +112,7 @@ class GameData extends React.Component{
 					</div>
 					<div className = "entry data">
 						<ul>{catalogue}</ul>
+						Platforms: {platformsList}
 					</div>
 				</div>
 				<div className = "entry extra">
