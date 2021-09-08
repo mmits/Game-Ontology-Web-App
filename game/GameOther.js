@@ -18,4 +18,6 @@ class GameOther extends React.Component{
 	}
 }
 
+// ========================================
+
 export default GameOther;

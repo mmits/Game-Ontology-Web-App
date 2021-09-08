@@ -1,26 +1,39 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import '../index.css';
+
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route,
+	Link
+} from "react-router-dom";
 
 class Top extends React.Component{
 	render(){
 		return (
-			<div className = "top">
-				<div className = "logo">
-					LOGO
+			<Router>
+				<div className = "top">
+					<div className = "logo">
+						<Link to="/">LOGO</Link>
+					</div>
+
+					<ul className = "top-nav">
+						<li className="topnav-item"><Link to="/search">Search</Link></li>
+						<li className="topnav-item"><Link to="/lists">Lists</Link></li>
+						<li className="topnav-item"><Link to="/recent">Recent</Link></li>
+					</ul>
+
+					<ul className = "top-nav">
+						<li className="extranav-item"><Link to="/about">About</Link></li>
+						<li className="extranav-item"><Link to="/framework">Framework</Link></li>
+					</ul>
+									
 				</div>
-				<ul className = "top-nav">
-					<li className="topnav-item"><a href="#">Search</a></li>
-					<li className="topnav-item"><a href="#">Lists</a></li>
-					<li className="topnav-item"><a href="#">Recent</a></li>
-				</ul>
-				<ul className = "top-nav">
-					<li className="extranav-item"><a href="#">About</a></li>
-					<li className="extranav-item"><a href="#">Framework</a></li>
-				</ul>
-			</div>
+			</Router>
 		);
 	}
 }
+
+// ========================================
 
 export default Top;

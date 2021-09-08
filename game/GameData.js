@@ -18,7 +18,7 @@ class GameData extends React.Component{
 	componentDidMount(){
 		//var query = 'PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> prefix MyOntology: <http://purl.org/net/MyOntology#> SELECT ?name ?genre ?platform ?date WHERE {MyOntology:Metroid rdfs:label ?name ;	MyOntology:hasGameGenre ?g ;	MyOntology:isReleasedOn ?p ;	MyOntology:releaseDate ?date .	?g	rdfs:label ?genre .	?p rdfs:label ?platform .}LIMIT 1';
 		
-		var query ='PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>prefix MyOntology: <http://purl.org/net/MyOntology#>SELECT DISTINCT ?x ?y ?label ?typeWHERE {  MyOntology:Metroid	?x ?y.  OPTIONAL{    ?y rdfs:label ?label .    ?y rdf:type ?type .  }}'
+		var query ='PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>prefix MyOntology: <http://purl.org/net/MyOntology#>SELECT DISTINCT ?x ?y ?label ?typeWHERE {MyOntology:Metroid ?x ?y.	OPTIONAL{?y rdfs:label ?label.	?y rdf:type ?type.}}'
 
 		var url = "http://localhost:3030/Test/query";
 		var queryUrl = url + '?query=' + encodeURIComponent(query);
@@ -122,5 +122,7 @@ class GameData extends React.Component{
 		);
 	}
 }
+
+// ========================================
 
 export default GameData;

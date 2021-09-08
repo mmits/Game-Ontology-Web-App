@@ -2,16 +2,14 @@ import React from 'react';
 import '../index.css';
 
 import SideList from '../common/SideList';
-import GameEntry from './GameEntry';
-import SideBlank from './SideBlank';
+import HomeContent from './HomeContent';
 
-class GameMain extends React.Component{
+class HomeMain extends React.Component{
 	render(){
 		return (
 			<div className = "main">
 				<SideList />
-				<GameEntry />
-				<SideBlank />
+				<HomeContent />
 			</div>
 		);
 	}
@@ -19,4 +17,4 @@ class GameMain extends React.Component{
 
 // ========================================
 
-export default GameMain;
+export default HomeMain;

@@ -91,10 +91,12 @@ body {
 .data{
 	padding: 20px;
 	float: left;
+	font-size: 20px;
 }
 .randgame-blocks{
 	padding: 20px;
-	flex: 1;
+	display: flex;
+	flex: 2;
 }
 
 .extra{
@@ -116,8 +118,15 @@ body {
 
 img{
 	margin: 20px;
+	width: 150px;
+}
+.img-large{
 	width: 250px;
 }
+.img-thumb{
+	width: 150px;
+}
+
 ul {
   list-style-type: none;
   margin: 0;

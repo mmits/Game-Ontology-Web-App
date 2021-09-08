@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import '../index.css';
 
 class SideList extends React.Component{
@@ -18,5 +17,7 @@ class SideList extends React.Component{
 		);
 	}
 }
+
+// ========================================
 
 export default SideList;

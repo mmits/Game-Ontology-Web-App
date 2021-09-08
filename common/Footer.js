@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import '../index.css';
 
 class Footer extends React.Component{
@@ -11,5 +10,7 @@ class Footer extends React.Component{
 		);
 	}
 }
+
+// ========================================
 
 export default Footer;
