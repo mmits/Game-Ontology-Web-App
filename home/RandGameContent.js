@@ -1,6 +1,13 @@
 import React from 'react';
 import '../index.css';
 
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route,
+	Link
+} from "react-router-dom";
+
 import cover from '../images/cover.jpg';
 
 class RandGameContent extends React.Component{
@@ -57,14 +64,16 @@ class RandGameContent extends React.Component{
 		let sideFlex = this.props.flexDirection;
 		let sideFloat = this.props.floatDirection;
 		return(
-			<div className = "entry randgame-blocks" style={{flexDirection:sideFlex}}>
-				<div className = "entry" style={{flexDirection:sideFlex}}>
-					<img className = "img-thumb" alt="" src={cover}></img>
+			<React.Fragment>
+				<div className = "entry randgame-blocks" style={{flexDirection:sideFlex}}>
+					<div className = "entry" style={{flexDirection:sideFlex}}>
+						<img className = "img-thumb" alt="" src={cover}></img>
+					</div>
+					<div className = "entry" style={{float:'left'}}>
+						<Link to="/game">{gameName}</Link>
+					</div>
 				</div>
-				<div className = "entry" style={{float:'left'}}>
-					{gameName}
-				</div>
-			</div>
+			</React.Fragment>
 		);
 		
 		/*

@@ -11,7 +11,6 @@ class GameMain extends React.Component{
 			<div className = "main">
 				<SideList />
 				<GameEntry />
-				<SideBlank />
 			</div>
 		);
 	}

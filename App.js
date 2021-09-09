@@ -5,7 +5,7 @@ import {
 	BrowserRouter as Router,
 	Switch,
 	Route,
-	Link
+	withRouter
 } from "react-router-dom";
 
 import Top from './common/Top';
@@ -16,15 +16,18 @@ import Footer from './common/Footer';
 class App extends React.Component{
 	render(){
 		return (
+		<div>
 			<Router>
 				<div id = "body">
 					<Top />
 					<Switch>
-						<Route exact path="/"><HomeMain /></Route>
+						<Route exact path="/" component={HomeMain} />
+						<Route exact path="/game" component={GameMain}  />
 					</Switch>
 					<Footer />
 				</div>
 			</Router>
+		</div>
 		);
 	}
 }
