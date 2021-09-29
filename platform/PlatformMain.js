@@ -2,19 +2,21 @@ import React from 'react';
 import {useParams } from "react-router-dom";
 import '../index.css';
 
-import GameData from './GameData';
+import PlatformData from './PlatformData';
+import PlatformGames from './PlatformGames';
 
-function GameMain(){
+function PlatformMain(){
 	
 	const { id } = useParams();
 	
 	return (
 		<div className = "page-background">
-			<GameData gameID = {id}/>
+			<PlatformData platformID = {id}/>
+			<PlatformGames platformID = {id}/>
 		</div>
 	);
 }
 
 // ========================================
 
-export default GameMain;
+export default PlatformMain;

@@ -3,38 +3,51 @@
 }
 
 body {
-	background: #FFFFFF;
+	background: #453769;
 	font: 18px "Century Gothic", Futura, sans-serif;
 	margin: 0;
 	padding: 0;
+}
+a{
+	color: #453769;
+	text-decoration: none;
+}
+a:hover{
+  background: #fef2fe;
 }
 
 /*====================================================*/
 /* Top bar */
 .top{
 	display: flex;
-	background: #FFFFFF;
+	background: #edcedf;
 	padding: 30px;
 	text-align: center;
-	border-bottom: 5px solid #000000;
+	border-bottom: 5px solid #453769;
 }
 
 /* Logo */
 .logo{
 	font-size: 40px;
-	flex: 2;
+	line-height:10%;
+	margin-top: -14px;
+	flex: 1;
 }
 
 /* Top navigation bar */
 .top-nav{
-	flex: 5;
+	flex: 4;
 	font-size: 18px;
 	list-style-type: none;
 	overflow: hidden;
-	background: #FFFFFF;
+	background: #edcedf;
 }
-.topnav-item {
+.topnav-item{
   float: left;
+}
+.topnav-text {
+	float: left;
+	padding: 14px;
 }
 .extranav-item {
   float: right;
@@ -47,7 +60,7 @@ body {
   text-decoration: none;
 }
 .topnav-item a:hover, .extranav-item a:hover {
-  background: #000000;
+  background: #563789;
   color: #FFFFFF;
 }
 /*====================================================*/
@@ -62,37 +75,43 @@ body {
 
 /* Sidebar */
 .side{
-	background: #FFFFFF;
+	background: #efeffe;
 	flex: 1;
 	text-align: center;
-	padding: 20px;
+}
+.side-link{
+	padding: 15px;
+	padding-right: 20px;
+	padding-left: 20px;
+	border-bottom: 2px solid #453769;
 }
 
 /* Game entry */
-.entry-bg{
-	background: #000000;
+.page-background{
+	background: #453769;
 	flex: 8;
 	padding: 20px;
 }
-.entry{
+.block{
 	background: white;
 	margin: 15px;
 }
-
-.entry-title{
-	font-size: 24px;
-	padding: 10px 40px;
+.padded{
+	padding: 20px;
+	float: left;
 }
 
-.entry-container{
+.page-title{
+	font-size: 26px;
+	padding: 10px 40px;
+	font-weight: bold;
+}
+
+.clear-flex{
 	display: flex;
 	clear: both;
 }
-.data{
-	padding: 20px;
-	float: left;
-	font-size: 20px;
-}
+
 .randgame-blocks{
 	padding: 20px;
 	display: flex;
@@ -100,7 +119,6 @@ body {
 }
 
 .extra{
-	clear: both;
 	padding: 20px;
 }
 
@@ -125,6 +143,8 @@ img{
 }
 .img-thumb{
 	width: 150px;
+	height: 150px;
+	object-fit: cover;
 }
 
 ul {
@@ -133,13 +153,44 @@ ul {
   padding: 0;
 }
 /*====================================================*/
+.ebg{
+	background: black;
+	padding: 20px;
+	height: 100vh;
+  width: 100vw;
+}
+.et{
+	background: black;
+	color: #54A898;
+	margin: 15px;
+	font-size: 26px;
+	padding: 10px 40px;
+	font-weight: bold;
+}
+.pbl{
+	background: black;
+	color: #1744DB;
+	text-shadow:
+		0 0 7px #1744DB,
+		0 0 10px #1744DB,
+		0 0 21px #1744DB;
+	margin: 15px;
+}
+.pl a{
+	color: #54A898;
+	text-shadow:
+		0 0 7px #54A898,
+		0 0 10px #304445;
+	background: black;
+}
 
 
 
 /*====================================================*/
 /* Footer */
 .footer{
-	background: #FFFFFF;
+	background: #453769;
+	color:#ffffff;
 	padding: 10px;
 	text-align: center;
 }

@@ -5,22 +5,22 @@ import RandGameContent from './RandGameContent';
 
 class RandGameRight extends React.Component{
 	
-	state = {
+	/*state = {
 		sideFlex : "row-reverse",
-		sideFloat: "right"
-	};
+		sideFloat: "left"
+	};*/
 	render(){
 		return(
-			<RandGameContent flexDirection = {this.state.sideFlex} floatDirection = {this.state.sideFloat}/>
+			<RandGameContent flexDirection = "row-reverse" />
 		);
 	}
 	
 	/*
 	render(){
 		return(
-			<div className = "entry randgame-blocks" style={{float:'right'}}>
-				<img alt="" src={cover} style={{float:'right'}}></img>
-				<div className = "entry" style={{float:'left'}}>
+			<div className = "block randgame-blocks" style={{float:'right'}}>
+				<img alt="" src={cover} style={{float:'right'}}/>
+				<div className = "block" style={{float:'left'}}>
 					<RandGameContent />
 				</div>
 			</div>

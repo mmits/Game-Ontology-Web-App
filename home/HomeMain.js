@@ -1,15 +1,15 @@
 import React from 'react';
 import '../index.css';
 
-import SideList from '../common/SideList';
-import HomeContent from './HomeContent';
+import HomeRands from './HomeRands';
+import HomeDesc from './HomeDesc';
 
 class HomeMain extends React.Component{
 	render(){
 		return (
-			<div className = "main">
-				<SideList />
-				<HomeContent />
+			<div className = "page-background">
+				<HomeDesc />
+				<HomeRands />
 			</div>
 		);
 	}

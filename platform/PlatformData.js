@@ -1,36 +1,27 @@
 import React from 'react';
 import '../index.css';
 
-import {
-	Link
-} from "react-router-dom";
-
-import GameOther from './GameOther';
-
-class GameData extends React.Component{
+class PlatformData extends React.Component{
 	
 	constructor(props) {
 		super(props);
 		this.state = {
 			items: [],
-			name: [],
-			cover: [],
-			genre: [],
-			genreID: [],
-			release: [],
-			platformID: [],
-			platforms: [],
-			mainPlatform: [],
-			comment: []
+			mainName: [],
+			names: [],
+			cover: []
 		};
 	}
 
 	componentDidMount(){
 		//var query = 'PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> prefix MyOntology: <http://purl.org/net/MyOntology#> SELECT ?name ?genre ?platform ?date WHERE {MyOntology:Metroid rdfs:label ?name ;	MyOntology:hasGameGenre ?g ;	MyOntology:isReleasedOn ?p ;	MyOntology:releaseDate ?date .	?g	rdfs:label ?genre .	?p rdfs:label ?platform .}LIMIT 1';
 		
-		let URI = this.props.gameID;
+		let URI = this.props.platformID;
 		
-		var query ='PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>prefix MyOntology: <http://purl.org/net/MyOntology#>SELECT DISTINCT ?x ?y ?label ?type WHERE {MyOntology:' + URI +' ?x ?y.	OPTIONAL{?y rdfs:label ?label.	?y rdf:type ?type.}}'
+		var query ='PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>prefix MyOntology: <http://purl.org/net/MyOntology#> PREFIX schema: <http://schema.org/> SELECT DISTINCT ?x ?y ?label ?type WHERE {MyOntology:' + URI +' ?x ?y.	OPTIONAL{?y rdfs:label ?label.	?y rdf:type ?type.}}'
+		
+		
+
 
 		var url = "http://localhost:3030/Test/query";
 		var queryUrl = url + '?query=' + encodeURIComponent(query);
@@ -43,7 +34,7 @@ class GameData extends React.Component{
 		};
 		
 		var labels=[];
-		var platforms=[];
+		var names=[];
 		var parsedObject;
 		const response = fetch(queryUrl,options)
 			.then(response => {
@@ -55,16 +46,11 @@ class GameData extends React.Component{
 					if (parsedObject[i]['y']['type']==="literal"){
 						switch (parsedObject[i]['x']['value']) {
 							case ("http://www.w3.org/2000/01/rdf-schema#label"):
-								var name = parsedObject[i]['y']['value'];
+								var mainName = (parsedObject[i]['y']['value']);
+								names.push(parsedObject[i]['y']['value']);
 								break;
 							case ("http://schema.org/image"):
 								var cover = parsedObject[i]['y']['value'];
-								break;
-							case ("http://purl.org/net/MyOntology#releaseDate"):
-								var release = parsedObject[i]['y']['value'];
-								break;
-							case ("http://www.w3.org/2000/01/rdf-schema#comment"):
-								var comment = parsedObject[i]['y']['value'];
 								break;
 							default:
 								labels.push(parsedObject[i]['y']['value']);
@@ -73,40 +59,19 @@ class GameData extends React.Component{
 					}
 					else if((typeof parsedObject[i]['label'] !== 'undefined') && (parsedObject[i]['label']['type']==="literal")){
 						switch (parsedObject[i]['x']['value']) {
-							case ("http://purl.org/net/MyOntology#hasGameGenre"):
-								var genre = parsedObject[i]['label']['value'];
-								var genreURI = parsedObject[i]['y']['value'];
-								var sub1 = genreURI.split("MyOntology#");
-								var genreID = sub1[1];
-								break;
-							case ("http://purl.org/net/MyOntology#isReleasedOn"):
-								var mainPlatform = (parsedObject[i]['label']['value']);
-								platforms.push(parsedObject[i]['label']['value']);	
-								var platformURI = parsedObject[i]['y']['value'];
-								var sub2 = platformURI.split("MyOntology#");
-								var platformID = sub2[1];
-								break;
-							default:
-								labels.push(parsedObject[i]['label']['value']);
-								break;
+						default:
+							labels.push(parsedObject[i]['label']['value']);
+							break;
 						}
 					}
 				}
 				console.log(data);
 				console.log(parsedObject);
-				console.log(labels);
-				console.log(platforms);
 				this.setState({
 					items: labels,
-					name: name,
-					cover: cover,
-					genre: genre,
-					genreID: genreID,
-					release: release,
-					platformID: platformID,
-					platforms: platforms,
-					mainPlatform: mainPlatform,
-					comment: comment
+					mainName: mainName,
+					names: names,
+					cover: cover
 					//gameObject: data['results']['bindings'][0]
 				});
 				/*
@@ -131,29 +96,21 @@ class GameData extends React.Component{
 		/*let catalogue = this.state.items.map((item, key) => (
 			<li key={key}>{item}</li>
 		));*/
-		//let platformsList = this.state.platforms.join(", ");
+		let namesList = this.state.names.join(", ");
 		
 		return(
 			<div>
 				<div className="block page-title">
-					<div><p>{this.state.name}</p></div>
+					<div><p>{this.state.mainName}</p></div>
 				</div>
 				<div className = "block clear-flex">
 					<div className = "block">
 						<img className = "img-large" alt="" src={this.state.cover}/>
 					</div>
 					<div className = "block padded">
-						Genre: <Link to={`/genre/${this.state.genreID}`}>{this.state.genre}</Link><br/>
-						Release Date: {this.state.release}<br/>
-						Platforms: <Link to={`/platform/${this.state.platformID}`}>{this.state.mainPlatform}</Link>
+						Other Names: {namesList}<br/>
 					</div>
 				</div>
-				<div className = "block extra">
-					{this.state.comment}
-				</div>
-				
-				<GameOther category = {this.state.genre}/>
-				<GameOther category = {this.state.platforms[0]}/>
 			</div>
 			
 		);
@@ -162,4 +119,4 @@ class GameData extends React.Component{
 
 // ========================================
 
-export default GameData;
+export default PlatformData;

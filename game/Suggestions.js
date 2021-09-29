@@ -7,7 +7,7 @@ class Suggestions extends React.Component{
 	render(){
 		return(
 			<div className = "suggestion-items">
-				<img alt="" src={image}></img>
+				<img alt="" src={image}/>
 				Game Name
 			</div>
 		);
