@@ -5,45 +5,6 @@ import SearchResults from './SearchResults';
 
 //function SearchOptions(){
 class SearchOptions extends React.Component {
-	/*constructor(props) {
-		super(props);
-		this.state = {
-			name: true,
-			genre: true,
-			platform: true
-		}
-	}
-	
-	handleClick(event) {
-		this.setState({
-			name: !this.state.name,
-			genre: !this.state.genre,
-			platform: !this.state.platform
-		});
-	}
-	
-	render() {
-		return (
-			<div>
-				<div className = "block extra">
-					Options
-					<div className = "block">
-						<input placeholder = "Name" disabled = {(this.state.name)? "name" : ""}/>
-						<input name="name" type="checkbox" onClick = {this.handleClick.bind(this)}/>
-					</div>
-					<div className = "block">
-						<input placeholder = "Genre" disabled = {(this.state.genre)? "genre" : ""}/>
-						<input name="genre" type="checkbox" onClick = {this.handleClick.bind(this)}/>
-					</div>
-					<div className = "block">
-						<input placeholder = "Platform" disabled = {(this.state.platform)? "platform" : ""}/>
-						<input name="platform" type="checkbox" onClick = {this.handleClick.bind(this)}/>
-					</div>
-				</div>
-			</div>
-		);
-	}*/
-	
 	constructor(props) {
 		super(props);
 		this.state = {

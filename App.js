@@ -17,8 +17,6 @@ import ListsMain from './lists/ListsMain';
 import PlatformMain from './platform/PlatformMain';
 import GenreMain from './genre/GenreMain';
 import FrameworkPage from './static/FrameworkPage';
-//import AboutPage from './static/AboutPage';
-//import AdvSearchMain from './search/SearchMain';
 import Footer from './common/Footer';
 
 class App extends React.Component{
@@ -31,7 +29,6 @@ class App extends React.Component{
 	render(){
 		return (
 		<Router>
-
 			<div id = "body">
 				<Top />
 				<div className = "main">

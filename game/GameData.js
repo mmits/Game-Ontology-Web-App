@@ -13,15 +13,15 @@ class GameData extends React.Component{
 		super(props);
 		this.state = {
 			items: [],
-			name: [],
-			cover: [],
-			genre: [],
-			genreID: [],
-			release: [],
-			platformID: [],
+			name: "",
+			cover: "",
+			genre: "",
+			genreID: "",
+			release: "",
+			platformID: "",
 			platforms: [],
-			mainPlatform: [],
-			comment: []
+			mainPlatform: "",
+			comment: ""
 		};
 	}
 
@@ -122,7 +122,7 @@ class GameData extends React.Component{
 
 		return response;
 	}
-	
+
 	render(){
 		/*
 		the values here could be used as variables for the SPARQL query, as in
@@ -132,6 +132,9 @@ class GameData extends React.Component{
 			<li key={key}>{item}</li>
 		));*/
 		//let platformsList = this.state.platforms.join(", ");
+		
+		//<GameOther category = {this.state.platforms[0]} type="isReleasedOn"/>
+		
 		
 		return(
 			<div>
@@ -151,9 +154,8 @@ class GameData extends React.Component{
 				<div className = "block extra">
 					{this.state.comment}
 				</div>
-				
-				<GameOther category = {this.state.genre}/>
-				<GameOther category = {this.state.platforms[0]}/>
+				{this.state.genreID && <GameOther categoryID = {this.state.genreID} categoryName = {this.state.genre} type="hasGameGenre"/>}
+				{this.state.platformID && <GameOther categoryID = {this.state.platformID} categoryName = {this.state.mainPlatform} type="isReleasedOn"/>}
 			</div>
 			
 		);
